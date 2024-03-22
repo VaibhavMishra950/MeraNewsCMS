@@ -9,7 +9,7 @@ const AdminPanelComponent = ({ user }) => {
     const router = useRouter();
 
     const getDataForAdminDashboard = async () => {
-        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/getDataForAdminDashboard`, {
+        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/admin/getDataForAdminDashboard`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

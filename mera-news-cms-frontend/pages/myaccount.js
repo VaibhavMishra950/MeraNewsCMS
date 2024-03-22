@@ -12,7 +12,7 @@ const MyAccount = ({ user }) => {
     const [userInfo, setUserInfo] = useState({});
 
     const getAndSetUserDetails = async () => {
-        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/getUserAccountDetails`, {
+        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/users/getUserAccountDetails`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ const MyAccount = ({ user }) => {
     }
 
     useEffect(() => {
-        if (!(localStorage.getItem('AlinaNewsCMSToken'))) {
+        if (!(localStorage.getItem('MeraNewsCMSToken'))) {
             router.push('/');
             return;
         }
@@ -41,7 +41,7 @@ const MyAccount = ({ user }) => {
 
     const handleSaveDetailsButtonClick = async () => {
         let data = { token: user.value, editUsername: userInfo.username, editFirstname, editLastname }
-        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/updateUser`, {
+        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/users/updateUser`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ const MyAccount = ({ user }) => {
             let data = new FormData();
             data.append('token', user.value);
             data.append('userProfilePic', file);
-            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/changeProfilePicture`, {
+            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/users/changeProfilePicture`, {
                 method: "POST",
                 body: data
             });

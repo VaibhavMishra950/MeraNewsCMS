@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   const getUserInfo = async (token) => {
-    let a = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/getUserInfo`, {
+    let a = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/users/getUserInfo`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }) {
   }
   useEffect(() => {
 
-    let token = localStorage.getItem('AlinaNewsCMSToken');
+    let token = localStorage.getItem('MeraNewsCMSToken');
     if (token) {
       getUserInfo(token).then((userData) => {
         if (userData.success) {
@@ -46,7 +46,7 @@ export default function App({ Component, pageProps }) {
   }, [router.query])
 
   const logout = () => {
-    localStorage.removeItem('AlinaNewsCMSToken');
+    localStorage.removeItem('MeraNewsCMSToken');
     setUser({ value: null });
     toast.success("Logged Out Successfully.")
     setTimeout(() => {

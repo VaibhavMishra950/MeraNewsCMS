@@ -11,7 +11,7 @@ const NewsArticle = () => {
     const [slugValidity, setSlugValidity] = useState(true);
 
     const getAndSetNews = async (slug) => {
-        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/getOneNewsUser`, {
+        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/news/getOneNewsUser`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

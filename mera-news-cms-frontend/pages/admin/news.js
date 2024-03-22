@@ -39,7 +39,7 @@ const AdminNewsComponent = ({ user }) => {
     const ReactQuill = useMemo(() => dynamic(() => import('react-quill'), { ssr: false }), []);
 
     const getAndSetNews = async () => {
-        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/getNewsListAdmin`, {
+        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/news/getNewsListAdmin`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ const AdminNewsComponent = ({ user }) => {
     const checkSlugAvailability = async (e) => {
         e.preventDefault();
         if (newsEditSlug.length > 0) {
-            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/isSlugAvailable?slg=${newsEditSlug}`);
+            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/news/isSlugAvailable?slg=${newsEditSlug}`);
             let data = await res.json();
             setEditSlugAvail(data)
         } else {
@@ -99,7 +99,7 @@ const AdminNewsComponent = ({ user }) => {
         let data = { token: user.value, newsEditId, newsEditTitle, newsEditDesc, newsEditSlug, newsEditContent, newsEditCategory, newsEditLive };
         if (newsEditTitle != "" && newsEditDesc != "" && newsEditSlug != "" && newsEditContent != "") {
             if (editSlugAvail?.available) {
-                let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/updateNews`, {
+                let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/news/updateNews`, {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
@@ -124,7 +124,7 @@ const AdminNewsComponent = ({ user }) => {
     const handleDeleteNewsButtonClick = async (id) => {
         if (confirm("Do you really want to delete that news?")) {
             let data = { token: user.value, id };
-            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/deleteNews`, {
+            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/news/deleteNews`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'

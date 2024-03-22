@@ -11,7 +11,7 @@ const NewsByUser = () => {
   const [usernameValidity, setUsernameValidity] = useState(true);
 
   const getAndSetNewsList = async (username) => {
-    let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/getEditorNewsListUser`, {
+    let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/news/getEditorNewsListUser`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

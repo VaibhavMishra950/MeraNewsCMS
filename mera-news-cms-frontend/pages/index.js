@@ -10,7 +10,7 @@ export default function Home() {
   const [allNews, setAllNews] = useState([]);
 
   const getAndSetNews = async () => {
-    let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/getAllNewsListViewer`);
+    let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/news/getAllNewsListViewer`);
     let result = await res.json();
     if (result.success) {
       setAllNews(result.data)

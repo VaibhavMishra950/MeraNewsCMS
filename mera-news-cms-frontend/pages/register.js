@@ -10,7 +10,7 @@ import { CircleCheck, CircleX } from 'lucide-react';
 
 const Login = () => {
     useEffect(() => {
-        if (localStorage.getItem('AlinaNewsCMSToken')) {
+        if (localStorage.getItem('MeraNewsCMSToken')) {
             router.push('/');
             return;
         }
@@ -42,7 +42,7 @@ const Login = () => {
         e.preventDefault();
         const data = { firstName, lastName, username, mobile: `${countries.find(x => x.code == curCountry).dial_code}${mobile}`, email, password };
         if (userAvail.available) {
-            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/register`, {
+            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/users/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const Login = () => {
     const checkUsername = async (e) => {
         e.preventDefault();
         if (username.length > 0) {
-            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/isUsernameAvailable?uname=${username}`);
+            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/users/isUsernameAvailable?uname=${username}`);
             let data = await res.json();
             setUserAvail(data)
         } else {

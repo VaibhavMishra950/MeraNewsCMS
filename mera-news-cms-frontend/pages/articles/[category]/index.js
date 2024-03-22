@@ -12,7 +12,7 @@ const CategoryPage = () => {
     const [newsList, setNewsList] = useState([]);
 
     const getAndSetNewsList = async (category) => {
-        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/getCategoryNewsListUser`, {
+        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/news/getCategoryNewsListUser`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

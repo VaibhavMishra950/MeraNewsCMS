@@ -63,7 +63,7 @@ const AdminWriteNewsComponent = ({ user }) => {
             data.append('scheduling', false);
 
             if (slugAvail?.available) {
-                let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/publishNews`, {
+                let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/news/publishNews`, {
                     method: "POST",
                     body: data
                 });
@@ -91,7 +91,7 @@ const AdminWriteNewsComponent = ({ user }) => {
     const checkSlugAvailability = async (e) => {
         e.preventDefault();
         if (newsSlug.length > 0) {
-            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/isSlugAvailable?slg=${newsSlug}`);
+            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/news/isSlugAvailable?slg=${newsSlug}`);
             let data = await res.json();
             setSlugAvail(data)
         } else {
@@ -124,7 +124,7 @@ const AdminWriteNewsComponent = ({ user }) => {
             console.log(new Date(new Date().getFullYear(), scheduleMonth, scheduleDate, scheduleHour, scheduleMinute));
 
             if (slugAvail?.available) {
-                let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/publishNews`, {
+                let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/news/publishNews`, {
                     method: "POST",
                     body: data
                 });

@@ -17,7 +17,7 @@ const ForgotPassword = () => {
     const [newPass, setNewPass] = useState("");
 
     useEffect(() => {
-        if (localStorage.getItem('AlinaNewsCMSToken')) {
+        if (localStorage.getItem('MeraNewsCMSToken')) {
             router.push('/');
         }
     }, [])
@@ -27,7 +27,7 @@ const ForgotPassword = () => {
         e.preventDefault();
         if (email != "" && status == "unsent") {
             setStatus("sending")
-            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/sendOTP`, {
+            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/otp/sendOTP`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ const ForgotPassword = () => {
     const handleSubmitOTP = async (e) => {
         e.preventDefault();
         if (OTP.length == 6 && newPass != "") {
-            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/verifyOTP`, {
+            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/otp/verifyOTP`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'

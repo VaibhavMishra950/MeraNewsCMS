@@ -21,7 +21,7 @@ const AdminUsersComponent = ({ user }) => {
     const [editMobile, setEditMobile] = useState("");
 
     const getAndSetEditors = async () => {
-        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/getEditors`, {
+        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/users/getEditors`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ const AdminUsersComponent = ({ user }) => {
     }
 
     const handleAddEditorBtnClick = async () => {
-        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/getViewers`, {
+        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/users/getViewers`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ const AdminUsersComponent = ({ user }) => {
     }
 
     const handleMakeEditorButton = async (username) => {
-        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/promoteUserToEditor`, {
+        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/users/promoteUserToEditor`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -107,7 +107,7 @@ const AdminUsersComponent = ({ user }) => {
         e.preventDefault();
         if (editFirstname != "" && editLastname != "") {
             let data = { token: user.value, editUsername, editFirstname, editLastname, editStatus };
-            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/updateUser`, {
+            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/users/updateUser`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -130,7 +130,7 @@ const AdminUsersComponent = ({ user }) => {
     const handleEditorDeleteButtonClick = async (uname) => {
         if (confirm(`Do you really want to delete this @${uname}?`)) {
             let data = { token: user.value, uname };
-            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/deleteUser`, {
+            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/users/deleteUser`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -150,7 +150,7 @@ const AdminUsersComponent = ({ user }) => {
     const handleEditorDemoteButtonClick = async (uname) => {
         if (confirm(`Do you really want to demote @${uname} to user?`)) {
             let data = { token: user.value, uname };
-            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/demoteEditorToUser`, {
+            let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/users/demoteEditorToUser`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'

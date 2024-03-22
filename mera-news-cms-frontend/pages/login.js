@@ -12,7 +12,7 @@ const Login = () => {
     const router = useRouter();
 
     useEffect(() => {
-        if (localStorage.getItem('AlinaNewsCMSToken')) {
+        if (localStorage.getItem('MeraNewsCMSToken')) {
             router.push('/');
         }
     }, [])
@@ -22,7 +22,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = { email, password };
-        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/login`, {
+        let res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/users/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ const Login = () => {
         let result = await res.json();
 
         if (result.success) {
-            localStorage.setItem('AlinaNewsCMSToken', result.token);
+            localStorage.setItem('MeraNewsCMSToken', result.token);
             toast.success("You\'re Logged In Successfully")
             setTimeout(() => {
                 router.push('/');
