@@ -33,7 +33,11 @@ cd mera-news-cms-frontend
 npm install
 ```
 
+
+
 Create a ```.env``` file in both ```mera-news-cms-frontend``` and ```mera-news-cms-backend``` to store their respective environment variables. Refer to ```.env.example``` file for required variables.
+
+Also, create a database with same name as mentioned in ```.env``` file of ```mera-news-cms-backend``` directory in ```MySQL```.
 
 ## Running the Application:
 
