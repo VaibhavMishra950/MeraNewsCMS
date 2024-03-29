@@ -34,7 +34,7 @@ const CategoryPage = () => {
         }
     }, [router.isReady]);
     return (<>
-        {categoryValidity && <div className='bg-gray-950/80 min-h-[calc(100vh-76px)]'>
+        {categoryValidity && <div className='bg-gray-100 dark:bg-gray-950/80 min-h-[calc(100vh-76px)]'>
             <div className='py-5 px-14'>
                 <Link
                     href={'/'}
@@ -42,11 +42,11 @@ const CategoryPage = () => {
                 >
                     <MoveLeft size={36} strokeWidth={1} />
                 </Link>
-                <p className='text-center text-4xl font-serif'>{curCategory} News</p>
+                <p className='text-center text-4xl font-serif text-black dark:text-white'>{curCategory} News</p>
             </div>
             <div className='grid w-full max-w-7xl mx-auto md:grid-cols-2 md:gap-6 md:space-y-0 lg:grid-cols-4'>
 
-                {newsList.map(newsItem => (<div key={newsItem.slug} className="rounded-md border border-gray-700 relative">
+                {newsList.map(newsItem => (<div key={newsItem.slug} className="rounded-md border border-gray-400 dark:border-gray-700 relative">
                     <img
                         src={`${process.env.NEXT_PUBLIC_SERVER_HOST}/newsCoverImages/${newsItem.coverimg}`}
                         alt="Cover Image"
@@ -54,14 +54,14 @@ const CategoryPage = () => {
                         className="aspect-[16/9] w-full rounded-md md:aspect-auto md:h-[300px] lg:h-[200px]"
                     />
                     <div className="p-4">
-                        <h1 className="inline-flex items-center text-lg font-semibold ">{newsItem.title.substring(0, 50) + (newsItem.title.length > 50 ? '...' : '')}</h1>
-                        <p className="mt-3 text-sm text-gray-600">
+                        <h1 className="inline-flex items-center text-lg font-semibold text-black dark:text-white">{newsItem.title.substring(0, 50) + (newsItem.title.length > 50 ? '...' : '')}</h1>
+                        <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
                             {newsItem.description.substring(0, 69) + (newsItem.description.length > 75 ? '...' : '')}
                         </p>
                         <Link
                             type="button"
                             href={`/articles/${newsItem.category}/${newsItem.slug}`}
-                            className="mt-4 text-center w-full rounded-sm bg-white px-2 py-1 font-semibold text-black shadow-md shadow-white/20 hover:bg-white/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                            className="mt-4 text-center w-full rounded-sm bg-black dark:bg-white px-2 py-1 font-semibold text-white dark:text-black shadow-md shadow-white/20 dark:shadow-black/20 hover:bg-black/80 dark:hover:bg-white/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                         >
                             Read More
                         </Link>

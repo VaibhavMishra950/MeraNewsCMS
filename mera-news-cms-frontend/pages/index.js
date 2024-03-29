@@ -5,7 +5,6 @@ import toast from "react-hot-toast";
 
 
 export default function Home() {
-
   const router = useRouter();
   const [allNews, setAllNews] = useState([]);
 
@@ -28,10 +27,8 @@ export default function Home() {
 
 
   return (
-    <div className="bg-gray-950/80">
+    <div className="bg-white dark:bg-gray-950">
       <div className="mx-auto grid w-full max-w-7xl items-center space-y-4 px-2 py-10 md:grid-cols-2 md:gap-6 md:space-y-0 lg:grid-cols-4">
-
-
         {allNews.map((news, index) => {
           if (index === 0) {
             return <div key={news.slug} className="rounded-md border border-gray-700/40 relative col-span-2 h-[390px]">
@@ -57,6 +54,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
           } else {
             return <div key={news.slug} className="rounded-md border border-gray-700/40 relative h-[390px]">
               <div className="absolute -top-1 -right-2">
@@ -71,14 +69,14 @@ export default function Home() {
                 className="aspect-[16/9] w-full rounded-md md:aspect-auto md:h-[300px] lg:h-[200px]"
               />
               <div className="p-4">
-                <h1 className="inline-flex items-center text-lg">{news.title.substring(0, 45) + (news.title.length > 50 ? '...' : '')}</h1>
-                <p className="mt-3 text-sm text-gray-500">
+                <h1 className="inline-flex items-center text-lg text-gray-950 dark:text-white">{news.title.substring(0, 45) + (news.title.length > 50 ? '...' : '')}</h1>
+                <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
                   {news.description.substring(0, 60) + (news.description.length > 60 ? '...' : '')}
                 </p>
                 <Link
                   type="button"
                   href={`/articles/${news.category}/${news.slug}`}
-                  className="mt-4 text-center w-full rounded-sm bg-white px-2 py-1 font-semibold text-black shadow-md shadow-white/20 hover:bg-white/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  className="mt-4 text-center w-full rounded-sm bg-black dark:bg-white px-2 py-1 font-semibold text-white dark:text-black shadow-md shadow-white/20 dark:shadow-black/20 hover:bg-black/80 dark:hover:bg-white/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   Read More
                 </Link>

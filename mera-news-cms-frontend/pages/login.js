@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast';
-import ANC_Full from "@/img/MNC_Logo.png";
+import ANC_Full from "@/img/MNC_Logo2.png";
 import Image from 'next/image';
 import { Lock } from 'lucide-react';
 
@@ -46,10 +46,10 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <Image src={ANC_Full} width={100} height={100} alt='Alina News CMS' className='mx-auto mt-10 rounded-full' />
-            <h2 className="mt-6 text-center text-3xl tracking-tight text-white">Sign in to your account</h2>
-            <p className="mt-2 text-center text-sm text-gray-400">
+        <div className='bg-white dark:bg-gray-950 py-10 min-h-screen'>
+            <Image src={ANC_Full} width={100} height={100} alt='Mera News CMS' className='mx-auto' />
+            <h2 className="mt-6 text-center text-3xl tracking-tight text-black dark:text-white">Sign in to your account</h2>
+            <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
                 Or
                 <Link href={'/register'} className="font-medium text-blue-700 hover:text-blue-600"> Create Account</Link>
             </p>

@@ -36,7 +36,7 @@ const AdminWriteNewsComponent = ({ user }) => {
 
     // Scheduling states
     const curYear = new Date().getFullYear();
-    const [showScheduleBox, setShowScheduleBox] = useState(false);
+    const [showScheduleBox, setShowScheduleBox] = useState(true);
     const [scheduleDate, setScheduleDate] = useState(new Date().getDate());
     const [scheduleMonth, setScheduleMonth] = useState(new Date().getMonth());
     const [scheduleHour, setScheduleHour] = useState(new Date().getHours());
@@ -152,8 +152,8 @@ const AdminWriteNewsComponent = ({ user }) => {
     return <>
         {/* Modal for Scheduling the news */}
         {showScheduleBox && <div onClick={handleScheduleDivClick} className='fixed top-0 left-0 z-50 flex items-center justify-center bg-gray-900/25 backdrop-blur-sm w-screen h-screen'>
-            <div className='bg-gray-950 border border-gray-700 rounded-2xl p-3 w-[440px] h-[calc(100vh-20%)]'>
-                <p className="text-white text-xl text-center"> Schedule this news </p>
+            <div className='bg-gray-50 dark:bg-gray-950 border border-gray-400 dark:border-gray-700 rounded-2xl p-3 w-[440px] h-[calc(100vh-20%)]'>
+                <p className="text-black dark:text-white text-xl text-center"> Schedule this news </p>
                 <form onSubmit={handleNewsScheduleBtnClick} className="max-w-sm mx-auto mt-10">
                     <div className="flex gap-3">
                         <div className="mb-5 w-1/2">
@@ -185,9 +185,9 @@ const AdminWriteNewsComponent = ({ user }) => {
         </div>}
 
         {/* Main Div */}
-        <div className='p-5 bg-gray-950/50'>
+        <div className='p-5 bg-gray-50 dark:bg-gray-950/50'>
             <div className="flex items-center justify-between">
-                <h2 className="text-2xl text-center font-semibold">Write News</h2>
+                <h2 className="text-2xl text-center font-semibold text-black dark:text-white">Write News</h2>
                 <div className='flex gap-2'>
                     <button
                         type="button"
@@ -204,12 +204,6 @@ const AdminWriteNewsComponent = ({ user }) => {
                     >
                         Schedule
                     </button>
-
-                    {/* <input
-                    className='bg-blue-500 px-5 rounded-lg'
-                    onChange={(e) => { console.log(new Date(e.target.value)); }}
-                    type="datetime-local"
-                /> */}
                 </div>
             </div>
             <div className="mt-6 gap-6 space-y-4 md:grid md:grid-cols-2 md:space-y-0 max-w-4xl mx-auto">
@@ -217,13 +211,13 @@ const AdminWriteNewsComponent = ({ user }) => {
                     <div className="flex gap-3">
                         <div className="w-full my-2">
                             <label
-                                className="text-sm mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                className="text-sm text-black dark:text-white mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                                 htmlFor="email"
                             >
                                 News Title
                             </label>
                             <input
-                                className="flex h-10 w-full rounded-md bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 dark:bg-gray-900 focus:ring-offset-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+                                className="flex h-10 w-full rounded-md bg-transparent px-3 py-2 text-sm placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 text-black dark:text-white border border-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:ring-offset-blue-500"
                                 type="text"
                                 placeholder="Enter news title"
                                 id="email"
@@ -234,13 +228,13 @@ const AdminWriteNewsComponent = ({ user }) => {
                         </div>
                         <div className="w-full my-2">
                             <label
-                                className="text-sm mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                className="text-sm text-black dark:text-white mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                                 htmlFor="email"
                             >
                                 News Slug (Unique)
                             </label>
                             <input
-                                className="flex h-10 w-full rounded-md bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 dark:bg-gray-900 focus:ring-offset-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+                                className="flex h-10 w-full rounded-md bg-transparent px-3 py-2 text-sm placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 border border-gray-300 dark:border-gray-600 text-black dark:text-white dark:bg-gray-700 focus:ring-offset-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
                                 type="text"
                                 placeholder="Enter news slug"
                                 id="email"
@@ -249,18 +243,18 @@ const AdminWriteNewsComponent = ({ user }) => {
                                 value={newsSlug}
                                 onChange={(e) => { setNewsSlug(e.target.value) }}
                             ></input>
-                            {slugAvail && (slugAvail.available ? <label className="mb-2 ml-1 mt-1 text-sm font-medium text-green-400 flex items-center gap-1"><CircleCheck size={16} /> Available</label> : <label className="mb-2 mt-1 ml-1 text-sm font-medium text-red-400 flex items-center gap-1"><CircleX size={16} /> Unavailable</label>)}
+                            {slugAvail && (slugAvail.available ? <label className="mb-2 ml-1 mt-1 text-sm font-medium text-green-600 dark:text-green-400 flex items-center gap-1"><CircleCheck size={16} /> Available</label> : <label className="mb-2 mt-1 ml-1 text-sm font-medium text-red-600 dark:text-red-400 flex items-center gap-1"><CircleX size={16} /> Unavailable</label>)}
                         </div>
                     </div>
                     <div className="w-full my-2">
                         <label
-                            className="text-sm mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            className="text-sm text-black dark:text-white mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                             htmlFor="email"
                         >
                             Description
                         </label>
                         <input
-                            className="flex h-10 w-full rounded-md bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 dark:bg-gray-900 focus:ring-offset-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+                            className="flex h-10 w-full rounded-md bg-transparent px-3 py-2 text-sm placeholder-gray-600 dark:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 border border-gray-300 dark:border-gray-600 text-black dark:text-white dark:bg-gray-700 focus:ring-offset-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
                             type="text"
                             placeholder="Enter description"
                             id="email"
@@ -272,14 +266,14 @@ const AdminWriteNewsComponent = ({ user }) => {
                     <div className='flex gap-3 items-center'>
                         <div className="w-full my-2">
                             <label
-                                className="text-sm mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                className="text-sm text-black dark:text-white mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                                 htmlFor="category"
                             >
                                 Category
                             </label>
                             <select
                                 id="category"
-                                className="text-sm rounded-lg focus:border-blue-500 block w-full p-2.5 bg-gray-900  placeholder-gray-400 text-white focus:ring-1 focus:ring-blue-500"
+                                className="text-sm rounded-lg focus:border-blue-500 block w-full p-2.5 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 placeholder-gray-600 dark:placeholder-gray-400 text-black dark:text-white focus:ring-1 focus:ring-blue-500"
                                 value={newsCategory}
                                 onChange={(e) => { setNewsCategory(e.target.value) }}
                             >
@@ -295,13 +289,13 @@ const AdminWriteNewsComponent = ({ user }) => {
                         </div>
                         <div className="w-full my-2">
                             <label
-                                className="block mb-1 text-sm font-medium text-white"
+                                className="block text-black dark:text-white mb-1 text-sm font-medium"
                                 htmlFor="file_input"
                             >
                                 Cover image
                             </label>
                             <input
-                                className="block w-full px-3 py-2 text-sm bg-gray-900 rounded-lg cursor-pointer text-gray-400 focus:outline-none  placeholder-gray-400"
+                                className="block w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 dark:bg-gray-700 rounded-lg cursor-pointer text-gray-500 focus:outline-none placeholder-gray-600 dark:placeholder-gray-400"
                                 id="file_input"
                                 type="file"
                                 accept='image/*'
@@ -312,7 +306,7 @@ const AdminWriteNewsComponent = ({ user }) => {
 
                         </div>
                     </div>
-                    <div className='text-white flex flex-col h-96 max-h-96 max-w-4xl my-10' >
+                    <div className='text-black dark:text-white flex flex-col h-96 max-h-96 max-w-4xl my-10' >
                         <p className="text-lg my-2">News Content</p>
                         <ReactQuill className='h-72' modules={quillModules} value={newsContent} onChange={(value) => { setNewsContent(value) }} />
                     </div>

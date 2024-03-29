@@ -186,7 +186,7 @@ const updateUser = async (req, res) => {
         console.log(username);
         if (uname == username || roleId == 0) {
             let _obj = { firstname, lastname };
-            if (status) {
+            if (status != undefined) {
                 _obj.status = status;
             }
             let u = await User.update(_obj, {

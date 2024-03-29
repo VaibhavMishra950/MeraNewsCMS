@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import "@/styles/globals.css";
-import { ThemeProvider, useTheme } from "next-themes";
+import { ThemeProvider } from "next-themes";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
@@ -9,8 +9,6 @@ import NextNProgress from "nextjs-progressbar";
 export default function App({ Component, pageProps }) {
 
   const [user, setUser] = useState({ value: null })
-  const { theme, setTheme } = useTheme();
-  setTheme("dark")
   const router = useRouter();
 
   const getUserInfo = async (token) => {
@@ -50,7 +48,7 @@ export default function App({ Component, pageProps }) {
     setUser({ value: null });
     toast.success("Logged Out Successfully.")
     setTimeout(() => {
-      router.push('/login')
+      router.push('/')
     }, 1000);
   }
 
@@ -63,8 +61,8 @@ export default function App({ Component, pageProps }) {
           color: '#fff',
         }
       }} />
-      <Navbar user={user} logout={logout} />
-      <ThemeProvider themes={theme}>
+      <ThemeProvider attribute="class" forcedTheme={Component.theme || undefined}>
+        <Navbar user={user} logout={logout} />
         <Component user={user} {...pageProps} />
       </ThemeProvider>
     </div>

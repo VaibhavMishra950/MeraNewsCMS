@@ -4,10 +4,11 @@ const CryptoJS = require("crypto-js");
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp-relay.brevo.com',
+    port: 587,
     auth: {
-        user: process.env.GMAIL_USERNAME,
-        pass: process.env.GMAIL_APP_PASSWORD
+        user: process.env.SENDINBLUE_SMTP_USERNAME,
+        pass: process.env.SENDINBLUE_SMTP_KEY
     }
 });
 const generateOTP = () => {
@@ -23,7 +24,7 @@ const sendOTP = async (req, res) => {
             }
             const OTP = generateOTP();
             const mailOptions = {
-                from: process.env.GMAIL_USERNAME,
+                from: process.env.SENDINBLUE_SMTP_USERNAME,
                 to: email,
                 subject: 'OTP Verification from Alina News CMS!',
                 html: `<p>Your OTP for Alina News CMS is: <strong>${OTP}</strong> <br/>
@@ -31,6 +32,7 @@ const sendOTP = async (req, res) => {
             };
             transporter.sendMail(mailOptions, async (err, info) => {
                 if (err) {
+                    console.log(err);
                     res.json({ success: false, message: "Some error occurred!" })
                 } else {
                     await OTPVerification.create({ email, otp: OTP })

@@ -168,14 +168,14 @@ const AdminUsersComponent = ({ user }) => {
     }
 
 
-    return <div className='p-5 bg-gray-950/50 w-full h-full'>
+    return <div className='p-5 w-full h-full'>
         {/* Modal for adding the editor */}
         {showAddBox && <div onClick={handleAddDivClick} className='fixed top-0 left-0 flex items-center justify-center bg-gray-900/25 backdrop-blur-sm w-screen h-screen'>
-            <div className='bg-gray-950 border border-gray-700 rounded-2xl p-3 w-[440px] h-[calc(100vh-20%)]'>
-                <p className="text-white text-xl text-center"> Promote User to Editor </p>
+            <div className='bg-gray-50 dark:bg-gray-950 border border-gray-400 dark:border-gray-700 rounded-2xl p-3 w-[440px] h-[calc(100vh-20%)]'>
+                <p className="text-black dark:text-white text-xl text-center"> Promote User to Editor </p>
                 <div className="my-3">
                     <input
-                        className="flex h-10 w-full rounded-md bg-gray-900 px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 focus:ring-offset-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="flex h-10 w-full border border-gray-300 dark:border-gray-600 text-black dark:text-white rounded-md bg-transparent dark:bg-gray-700 px-3 py-2 text-sm placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-1  focus:ring-offset-1 focus:ring-offset-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
                         type="text"
                         placeholder="Search username"
                         onChange={handleSearchInputChange}
@@ -192,8 +192,8 @@ const AdminUsersComponent = ({ user }) => {
                                         alt={viewer.name}
                                     />
                                     <span className="flex flex-col">
-                                        <span className="text-sm font-medium text-gray-200">{`${viewer.firstname} ${viewer.lastname}`}</span>
-                                        <span className="text-sm font-medium text-gray-400">@{viewer.username}</span>
+                                        <span className="text-sm font-medium text-gray-900 dark:text-gray-200">{`${viewer.firstname} ${viewer.lastname}`}</span>
+                                        <span className="text-sm font-medium text-gray-600 dark:text-gray-400">@{viewer.username}</span>
                                     </span>
                                 </span>
                                 <button
@@ -214,21 +214,21 @@ const AdminUsersComponent = ({ user }) => {
 
         {/* Modal for editing the editor */}
         {showEditBox && <div onClick={handleEditDivClick} className='fixed top-0 left-0 flex items-center justify-center bg-gray-900/25 backdrop-blur-sm w-screen h-screen'>
-            <div className='bg-gray-950 border border-gray-700 rounded-2xl p-3 w-[440px] h-[calc(100vh-20%)]'>
-                <p className="text-white text-xl text-center"> Edit editor details </p>
+            <div className='bg-gray-50 dark:bg-gray-950 border border-gray-400 dark:border-gray-700 rounded-2xl p-3 w-[440px] h-[calc(100vh-20%)]'>
+                <p className="text-black dark:text-white text-xl text-center"> Edit editor details </p>
                 <form onSubmit={handleEditFormSubmit} className="max-w-sm mx-auto mt-10">
                     <div className="mb-5">
-                        <label className="block mb-2 text-base font-medium text-gray-50">
+                        <label className="block mb-2 text-base font-medium text-gray-900 dark:text-gray-50">
                             Username:
-                            <span className='text-gray-400' > @{editUsername}</span>
+                            <span className='text-gray-600 dark:text-gray-400' > @{editUsername}</span>
                         </label>
-                        <label className="block mb-2 text-base font-medium text-gray-50">
+                        <label className="block mb-2 text-base font-medium text-gray-900 dark:text-gray-50">
                             Mobile:
-                            <span className='text-gray-400' > {editMobile}</span>
+                            <span className='text-gray-600 dark:text-gray-400' > {editMobile}</span>
                         </label>
-                        <label className="block mb-2 text-base font-medium text-gray-50">
+                        <label className="block mb-2 text-base font-medium text-gray-900 dark:text-gray-50">
                             Email ID:
-                            <span className='text-gray-400' > {editEmail}</span>
+                            <span className='text-gray-600 dark:text-gray-400' > {editEmail}</span>
                         </label>
                     </div>
                     <div className="mb-5">
@@ -250,8 +250,8 @@ const AdminUsersComponent = ({ user }) => {
                                     onChange={() => { setEditStatus(!editStatus) }}
                                     className='sr-only'
                                 />
-                                <div className='block h-8 w-14 rounded-full bg-gray-800'></div>
-                                <div className={`dot absolute ${editStatus ? 'left-7' : 'left-1'} top-1 h-6 w-6 rounded-full ${editStatus ? 'bg-blue-600' : 'bg-white'} transition-all duration-100`}></div>
+                                <div className='block h-8 w-14 rounded-full bg-transparent border border-gray-400 dark:border-gray-600 dark:bg-gray-700'></div>
+                                    <div className={`dot absolute ${editStatus ? 'left-7' : 'left-1'} top-1 h-6 w-6 rounded-full ${editStatus ? 'bg-blue-700 dark:bg-blue-600' : 'bg-gray-400 dark:bg-white'} transition-all duration-100`}></div>
                             </div>
                         </label>
                     </div>
@@ -264,8 +264,8 @@ const AdminUsersComponent = ({ user }) => {
         <section className="mx-auto w-full max-w-7xl px-4 py-4">
             <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
                 <div>
-                    <h2 className="text-lg">Editors</h2>
-                    <p className="mt-1 text-sm text-gray-400">
+                    <h2 className="text-lg text-black dark:text-white">Editors</h2>
+                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                         This is a list of all editors. You can add new editors, edit or delete existing
                         ones.
                     </p>
@@ -283,45 +283,45 @@ const AdminUsersComponent = ({ user }) => {
             <div className="mt-6 flex flex-col">
                 <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                        <div className="overflow-hidden border border-gray-950 md:rounded-lg">
-                            <table className="min-w-full divide-y divide-gray-950">
-                                <thead className="bg-gray-900">
+                        <div className="overflow-hidden border border-gray-50 dark:border-gray-950 md:rounded-lg">
+                            <table className="min-w-full divide-y divide-gray-50 dark:divide-gray-950">
+                                <thead className="bg-gray-300 dark:bg-gray-900">
                                     <tr>
                                         <th
                                             scope="col"
-                                            className="px-4 py-3.5 text-left text-sm font-normal text-gray-400"
+                                            className="px-4 py-3.5 text-left text-sm font-normal text-gray-700 dark:text-gray-400"
                                         >
                                             <span>Editor</span>
                                         </th>
                                         <th
                                             scope="col"
-                                            className="px-12 py-3.5 text-left text-sm font-normal text-gray-400"
+                                            className="px-12 py-3.5 text-left text-sm font-normal text-gray-700 dark:text-gray-400"
                                         >
                                             Contact
                                         </th>
 
                                         <th
                                             scope="col"
-                                            className="px-4 py-3.5 text-left text-sm font-normal text-gray-400"
+                                            className="px-4 py-3.5 text-left text-sm font-normal text-gray-700 dark:text-gray-400"
                                         >
                                             Status
                                         </th>
 
                                         <th
                                             scope="col"
-                                            className="px-4 py-3.5 text-left text-sm font-normal text-gray-400"
+                                            className="px-4 py-3.5 text-left text-sm font-normal text-gray-700 dark:text-gray-400"
                                         >
                                             Username
                                         </th>
                                         <th
                                             scope="col"
-                                            className="px-4 py-3.5 text-left text-sm font-normal text-gray-400"
+                                            className="px-4 py-3.5 text-left text-sm font-normal text-gray-700 dark:text-gray-400"
                                         >
                                             Actions
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-gray-950 bg-gray-900">
+                                <tbody className="divide-y divide-gray-50 dark:divide-gray-950 bg-gray-300/50 dark:bg-gray-900/60">
                                     {editors.map((editor) => (
                                         <tr key={editor.username}>
                                             <td className="whitespace-nowrap px-4 py-4">
@@ -334,33 +334,33 @@ const AdminUsersComponent = ({ user }) => {
                                                         />
                                                     </div>
                                                     <div className="ml-4">
-                                                        <div className="text-sm font-medium text-gray-200">{editor.firstname + " " + editor.lastname}</div>
-                                                        <div className="text-sm text-gray-400">{editor.email}</div>
+                                                        <div className="text-sm font-medium text-gray-900 dark:text-gray-200">{editor.firstname + " " + editor.lastname}</div>
+                                                        <div className="text-sm text-gray-600 dark:text-gray-400">{editor.email}</div>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td className="whitespace-nowrap px-12 py-4">
-                                                <div className="text-sm text-gray-200 ">{editor.mobile}</div>
+                                                <div className="text-sm text-gray-900 dark:text-gray-200 ">{editor.mobile}</div>
                                             </td>
                                             <td className="whitespace-nowrap px-4 py-4">
-                                                {editor.status ? <span className="inline-flex rounded-full bg-green-400/20 px-2 text-xs leading-5 text-green-400">
+                                                {editor.status ? <span className="inline-flex rounded-full bg-green-700/20 dark:bg-green-400/20 px-2 text-xs leading-5 text-green-700 dark:text-green-400">
                                                     Active
                                                 </span> :
-                                                    <span className="inline-flex rounded-full bg-red-400/20 px-2 text-xs leading-5 text-red-400">
+                                                    <span className="inline-flex rounded-full bg-red-700/20 dark:bg-red-400/20 px-2 text-xs leading-5 text-red-700 dark:text-red-400">
                                                         Inactive
                                                     </span>}
                                             </td>
-                                            <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-200">
+                                            <td className="whitespace-nowrap px-4 py-4 text-sm text-gray-900 dark:text-gray-200">
                                                 {editor.username}
                                             </td>
                                             <td className="whitespace-nowrap px-4 py-4 text-left text-sm font-medium flex gap-1">
-                                                <button onClick={() => { handleEditorEditButtonClick(editor) }} title='Edit' className="rounded-full bg-blue-500/80 px-2 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                                                <button onClick={() => { handleEditorEditButtonClick(editor) }} title='Edit' className="rounded-full bg-blue-600/80 dark:bg-blue-500/80 mx-[3px] px-2 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600/70 dark:hover:bg-blue-500/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                                                     <PencilLine size={16} />
                                                 </button>
-                                                <button onClick={() => { handleEditorDemoteButtonClick(editor.username) }} title='Demote editor to user' className="rounded-full bg-violet-500/80 px-2 py-2 text-sm font-semibold text-white shadow-sm hover:bg-violet-500/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                                                <button onClick={() => { handleEditorDemoteButtonClick(editor.username) }} title='Demote editor to user' className="rounded-full bg-violet-600 dark:bg-violet-500/80 mx-[3px] px-2 py-2 text-sm font-semibold text-white shadow-sm hover:bg-violet-600/70 dark:hover:bg-violet-500/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                                                     <UserRoundMinus size={16} />
                                                 </button>
-                                                <button onClick={() => { handleEditorDeleteButtonClick(editor.username) }} title='Delete' className="rounded-full bg-red-500/80 px-2 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                                                <button onClick={() => { handleEditorDeleteButtonClick(editor.username) }} title='Delete' className="rounded-full bg-red-600 dark:bg-red-500/80 mx-[3px] px-2 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-600/70 dark:hover:bg-red-500/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                                                     <Trash2 size={16} />
                                                 </button>
                                             </td>

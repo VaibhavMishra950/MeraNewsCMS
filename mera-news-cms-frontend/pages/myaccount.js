@@ -88,7 +88,7 @@ const MyAccount = ({ user }) => {
         }
     }
 
-    return (<div className='bg-gray-950 min-h-[calc(100vh-76px)]'>
+    return (<div className='bg-gray-100 dark:bg-gray-950 min-h-[calc(100vh-76px)]'>
         <div className='py-5 px-14'>
             <button
                 onClick={router.back}
@@ -96,18 +96,18 @@ const MyAccount = ({ user }) => {
             >
                 <MoveLeft size={36} strokeWidth={1} />
             </button>
-            <h1 className='text-center text-3xl font-display'>My Account</h1>
-            <div className="flex items-center justify-evenly font-display my-5">
+            <h1 className='text-center text-3xl font-display text-gray-950 dark:text-white'>My Account</h1>
+            <div className="flex items-center justify-evenly font-display my-5 text-gray-950 dark:text-gray-50">
                 <div>
                     <div>
                         <p className='text-xl my-1'>
-                            Email: <span className='text-gray-400'>{userInfo?.email}</span>
+                            Email: <span className='text-gray-600 dark:text-gray-400'>{userInfo?.email}</span>
                         </p>
                         <p className='text-xl my-1'>
-                            Username: <span className='text-gray-400'>@{userInfo?.username}</span>
+                            Username: <span className='text-gray-600 dark:text-gray-400'>@{userInfo?.username}</span>
                         </p>
                         <p className='text-xl my-1'>
-                            Mobile: <span className='text-gray-400'> {userInfo?.mobile}</span>
+                            Mobile: <span className='text-gray-600 dark:text-gray-400'> {userInfo?.mobile}</span>
                         </p>
                     </div>
                     <div className='mt-10'>
@@ -120,11 +120,12 @@ const MyAccount = ({ user }) => {
                             <input value={editLastname} onChange={(e) => { setEditLastname(e.target.value) }} name='lastname' type="text" id="lastname" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                         </div>
                         <button onClick={handleSaveDetailsButtonClick} className="text-white mr-3 bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-950">Save Details</button>
-                        <button onClick={handleResetButtonClick} className="text-blue-600  focus:ring-2 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600/10 dark:hover:bg-blue-600/20 dark:focus:ring-blue-950">Reset</button>
+                        <button onClick={handleResetButtonClick} className="text-blue-600  focus:ring-2 focus:outline-none font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600/20 dark:bg-blue-600/10 hover:bg-blue-600/30 dark:hover:bg-blue-600/20 dark:focus:ring-blue-950">Reset</button>
                     </div>
 
                 </div>
                 <div>
+
                     <img
                         src={userInfo.image ? `${process.env.NEXT_PUBLIC_SERVER_HOST}/userProfiles/${userInfo.image}` : sample_user.src}
                         className='w-60 rounded-full'
@@ -132,7 +133,7 @@ const MyAccount = ({ user }) => {
                     <label
                         htmlFor='picInput'
                         onDrag={(e) => {e.preventDefault()}}
-                        className='flex gap-2 cursor-pointer bg-blue-600 hover:bg-blue-700 rounded-lg w-fit px-3 py-2 mx-auto mt-10'
+                        className='flex text-white gap-2 cursor-pointer bg-blue-600 hover:bg-blue-700 rounded-lg w-fit px-3 py-2 mx-auto mt-10'
                     >
                         <SwitchCamera /> Change
                     </label>

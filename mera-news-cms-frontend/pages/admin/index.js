@@ -27,33 +27,33 @@ const AdminPanelComponent = ({ user }) => {
         getDataForAdminDashboard();
     }, []);
 
-    return <div className='p-5 bg-gray-950/80 min-h-[calc(100vh-76px)] font-display'>
-        <h1 className='text-4xl text-center'>Admin Panel</h1>
+    return <div className='p-5 bg-gray-50 dark:bg-gray-950/80 min-h-[calc(100vh-76px)] font-display'>
+        <h1 className='text-4xl text-center text-black dark:text-white'>Admin Panel</h1>
         <div className='mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6'>
 
-            <div className='w-[310px] mx-auto h-[190px] bg-blue-950/50 shadow-xl hover:shadow-black hover:-mt-1 hover:bg-blue-950/40 transition-all duration-200 rounded-xl items-center cursor-pointer overflow-hidden'>
-                <div className='flex items-center justify-center p-2 gap-2 bg-blue-950'>
+            <div className='w-[310px] mx-auto h-[190px] bg-blue-950/30 dark:bg-blue-950/50 shadow-xl text-blue-950 dark:text-white hover:shadow-gray-500 dark:hover:shadow-black hover:-mt-1 hover:bg-blue-950/40 transition-all duration-200 rounded-xl items-center cursor-pointer overflow-hidden'>
+                <div className='flex items-center justify-center p-2 gap-2 bg-blue-950 text-white'>
                     <Eye />
                     <span>Views</span>
                 </div>
                 <span className='text-5xl h-[150px] flex justify-center items-center'>{pageData?.totalViews}</span>
             </div>
-            <div className='w-[310px] mx-auto h-[190px] bg-blue-950/50 shadow-xl hover:shadow-black hover:-mt-1 hover:bg-blue-950/40 transition-all duration-200 rounded-xl items-center cursor-pointer overflow-hidden'>
-                <div className='flex items-center justify-center p-2 gap-2 bg-blue-950'>
+            <div className='w-[310px] mx-auto h-[190px] bg-blue-950/30 dark:bg-blue-950/50 shadow-xl text-blue-950 dark:text-white hover:shadow-gray-500 dark:hover:shadow-black hover:-mt-1 hover:bg-blue-950/40 transition-all duration-200 rounded-xl items-center cursor-pointer overflow-hidden'>
+            <div className='flex items-center justify-center p-2 gap-2 bg-blue-950 text-white'>
                     <Users />
                     <span>Users</span>
                 </div>
                 <span className='text-5xl h-[150px] flex justify-center items-center'>{pageData?.userCount}</span>
             </div>
-            <div onClick={()=>{router.push('/admin/users')}} className='w-[310px] mx-auto h-[190px] bg-blue-950/50 shadow-xl hover:shadow-black hover:-mt-1 hover:bg-blue-950/40 transition-all duration-200 rounded-xl items-center cursor-pointer overflow-hidden'>
-                <div className='flex items-center justify-center p-2 gap-2 bg-blue-950'>
+            <div onClick={()=>{if (user.roleId == 0) router.push('/admin/users') }} className='w-[310px] mx-auto h-[190px] bg-blue-950/30 dark:bg-blue-950/50 shadow-xl text-blue-950 dark:text-white hover:shadow-gray-500 dark:hover:shadow-black hover:-mt-1 hover:bg-blue-950/40 transition-all duration-200 rounded-xl items-center cursor-pointer overflow-hidden'>
+            <div className='flex items-center justify-center p-2 gap-2 bg-blue-950 text-white'>
                     <PencilLine />
                     <span>Editors</span>
                 </div>
                 <span className='text-5xl h-[150px] flex justify-center items-center'>{pageData?.editorCount}</span>
             </div>
-            <div onClick={()=>{router.push('/admin/news')}} className='w-[310px] mx-auto h-[190px] bg-blue-950/50 shadow-xl hover:shadow-black hover:-mt-1 hover:bg-blue-950/40 transition-all duration-200 rounded-xl items-center cursor-pointer overflow-hidden'>
-                <div className='flex items-center justify-center p-2 gap-2 bg-blue-950'>
+            <div onClick={()=>{router.push('/admin/news')}} className='w-[310px] mx-auto h-[190px] bg-blue-950/30 dark:bg-blue-950/50 shadow-xl text-blue-950 dark:text-white hover:shadow-gray-500 dark:hover:shadow-black hover:-mt-1 hover:bg-blue-950/40 transition-all duration-200 rounded-xl items-center cursor-pointer overflow-hidden'>
+            <div className='flex items-center justify-center p-2 gap-2 bg-blue-950 text-white'>
                     <Newspaper />
                     <span>News Articles</span>
                 </div>

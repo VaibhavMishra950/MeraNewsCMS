@@ -145,9 +145,9 @@ const AdminNewsComponent = ({ user }) => {
     return (<>
         {/* Modal for editing the news */}
         {showEditNewsBox && <div onClick={handleEditNewsDivClick} className='fixed top-0 left-0 flex items-center justify-center bg-gray-900/25 backdrop-blur-sm w-screen h-screen'>
-            <div className='bg-gray-950 border border-gray-700 rounded-2xl p-5 px-7 pb-16 h-[calc(100vh-20%)] overflow-y-scroll'>
+            <div className='bg-gray-50 dark:bg-gray-950 border border-gray-400 dark:border-gray-700 rounded-2xl p-5 px-7 pb-16 h-[calc(100vh-20%)] overflow-y-scroll'>
                 <div className="flex items-center justify-between">
-                    <p className="text-white text-xl text-center"> Edit News </p>
+                    <p className="text-black dark:text-white text-xl text-center"> Edit News </p>
                     <button
                         type="button"
                         className="my-5 flex items-center gap-2 rounded-md bg-blue-800 px-3 py-2 text-white shadow-sm hover:bg-blue-800/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
@@ -160,13 +160,13 @@ const AdminNewsComponent = ({ user }) => {
                     <div className="flex gap-3">
                         <div className="w-full my-2">
                             <label
-                                className="text-sm mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                className="text-sm text-black dark:text-white mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                                 htmlFor="email"
                             >
                                 News Title
                             </label>
                             <input
-                                className="flex h-10 w-full rounded-md bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 dark:bg-gray-900 focus:ring-offset-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+                                className="flex h-10 w-full rounded-md bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 dark:placeholder:text-gray-400 dark:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-offset-1 text-black dark:text-white border border-gray-300 dark:border-gray-600 focus:ring-offset-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
                                 type="text"
                                 placeholder="Enter news title"
                                 id="email"
@@ -177,13 +177,13 @@ const AdminNewsComponent = ({ user }) => {
                         </div>
                         <div className="w-full my-2">
                             <label
-                                className="text-sm mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                className="text-sm text-black dark:text-white mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                                 htmlFor="email"
                             >
                                 News Slug (Unique)
                             </label>
                             <input
-                                className="flex h-10 w-full rounded-md bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 dark:bg-gray-900 focus:ring-offset-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+                                className="flex h-10 w-full rounded-md bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 dark:placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-offset-1 bg-gray-300 text-black dark:text-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-offset-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
                                 type="text"
                                 placeholder="Enter news slug"
                                 id="email"
@@ -192,18 +192,18 @@ const AdminNewsComponent = ({ user }) => {
                                 onChange={(e) => { setNewsEditSlug(e.target.value) }}
                                 onBlur={checkSlugAvailability}
                             ></input>
-                            {editSlugAvail && (editSlugAvail.available ? <label className="mb-2 ml-1 mt-1 text-sm font-medium text-green-400 flex items-center gap-1"><CircleCheck size={16} /> Available</label> : <label className="mb-2 mt-1 ml-1 text-sm font-medium text-red-400 flex items-center gap-1"><CircleX size={16} /> Unavailable</label>)}
+                            {editSlugAvail && (editSlugAvail.available ? <label className="mb-2 ml-1 mt-1 text-sm font-medium text-green-600 dark:text-green-400 flex items-center gap-1"><CircleCheck size={16} /> Available</label> : <label className="mb-2 mt-1 ml-1 text-sm font-medium text-red-600 dark:text-red-400 flex items-center gap-1"><CircleX size={16} /> Unavailable</label>)}
                         </div>
                     </div>
                     <div className="w-full my-2">
                         <label
-                            className="text-sm mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            className="text-sm text-black dark:text-white mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                             htmlFor="email"
                         >
                             Description
                         </label>
                         <input
-                            className="flex h-10 w-full rounded-md bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 dark:bg-gray-900 focus:ring-offset-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+                            className="flex h-10 w-full rounded-md bg-transparent px-3 py-2 text-sm placeholder:text-gray-600 dark:placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-offset-1 text-black dark:text-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-offset-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
                             type="text"
                             placeholder="Enter description"
                             id="email"
@@ -215,14 +215,14 @@ const AdminNewsComponent = ({ user }) => {
                     <div className='flex gap-3 items-center'>
                         <div className="w-1/2 my-2">
                             <label
-                                className="text-sm mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                className="text-sm text-black dark:text-white mb-1 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                                 htmlFor="category"
                             >
                                 Category
                             </label>
                             <select
                                 id="category"
-                                className="text-sm rounded-lg focus:border-blue-500 block w-full p-2.5 bg-gray-900  placeholder-gray-400 text-white focus:ring-1 focus:ring-blue-500"
+                                className="text-sm rounded-lg focus:border-blue-500 block w-full p-2.5 bg-transparent dark:bg-gray-700 text-black placeholder-gray-600 dark:placeholder-gray-600 dark:text-white border border-gray-300 dark:border-gray-600 focus:ring-1 focus:ring-blue-500"
                                 value={newsEditCategory}
                                 onChange={(e) => { setNewsEditCategory(e.target.value) }}
                             >
@@ -247,13 +247,13 @@ const AdminNewsComponent = ({ user }) => {
                                         onChange={() => { setNewsEditLive(!newsEditLive) }}
                                         className='sr-only'
                                     />
-                                    <div className='block h-8 w-14 rounded-full bg-gray-800'></div>
-                                    <div className={`dot absolute ${newsEditLive ? 'left-7' : 'left-1'} top-1 h-6 w-6 rounded-full ${newsEditLive ? 'bg-blue-600' : 'bg-white'} transition-all duration-100`}></div>
+                                    <div className='block h-8 w-14 rounded-full bg-transparent border border-gray-400 dark:border-gray-600 dark:bg-gray-700'></div>
+                                    <div className={`dot absolute ${newsEditLive ? 'left-7' : 'left-1'} top-1 h-6 w-6 rounded-full ${newsEditLive ? 'bg-blue-700 dark:bg-blue-600' : 'bg-gray-400 dark:bg-white'} transition-all duration-100`}></div>
                                 </div>
                             </label>
                         </div>
                     </div>
-                    <div className='text-white flex flex-col w-[56rem] max-w-4xl my-10' >
+                    <div className='text-black dark:text-white flex flex-col w-[56rem] max-w-4xl my-10' >
                         <p className="text-lg my-2">News Content</p>
                         <ReactQuill className='h-72' modules={quillModules} value={newsEditContent} onChange={(val) => { setNewsEditContent(val) }} />
                     </div>
@@ -262,12 +262,12 @@ const AdminNewsComponent = ({ user }) => {
         </div>}
 
         {/* Main Box */}
-        <div className='p-5 bg-gray-950/50 w-full h-full'>
+        <div className='p-5 bg-gray-50 dark:bg-gray-950/50 w-full h-full'>
             <div className='flex items-center flex-col sm:flex-row justify-between gap-3'>
-                <h2 className="text-2xl text-center font-semibold">Manage News</h2>
+                <h2 className="text-2xl text-black dark:text-white text-center font-semibold">Manage News</h2>
                 <div className="w-full md:w-1/3">
                     <input
-                        className="flex h-10 w-full rounded-md bg-gray-900 px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 focus:dark:ring-offset-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="flex h-10 w-full rounded-md border border-gray-300 dark:border-gray-600 text-black dark:text-white bg-transparent dark:bg-gray-700 px-3 py-2 text-sm placeholder:text-gray-600 dark:placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-blue-500 focus:dark:ring-offset-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
                         type="text"
                         placeholder="Search for News"
                         onChange={handleNewsSearchInputChange}
@@ -277,79 +277,79 @@ const AdminNewsComponent = ({ user }) => {
             <div className="mt-6 flex flex-col">
                 <div className="overflow-x-auto">
                     <div className="inline-block min-w-full py-2 align-middle">
-                        <div className="overflow-hidden border border-gray-950 md:rounded-lg">
-                            <table className="min-w-full divide-y divide-gray-950">
-                                <thead className="bg-gray-900">
+                        <div className="overflow-hidden border border-gray-50 dark:border-gray-950 md:rounded-lg">
+                            <table className="min-w-full divide-y divide-gray-50 dark:divide-gray-950">
+                                <thead className="bg-gray-300 dark:bg-gray-900">
                                     <tr>
                                         <th
                                             scope="col"
-                                            className="w-1/2 px-4 py-3.5 text-left text-sm font-normal text-gray-400"
+                                            className="w-1/2 px-4 py-3.5 text-left text-sm font-normal text-gray-700 dark:text-gray-400"
                                         >
                                             <span>News</span>
                                         </th>
 
                                         <th
                                             scope="col"
-                                            className="px-12 py-3.5 text-left text-sm font-normal text-gray-400"
+                                            className="px-12 py-3.5 text-left text-sm font-normal text-gray-700 dark:text-gray-400"
                                         >
                                             Author
                                         </th>
 
                                         <th
                                             scope="col"
-                                            className="px-12 py-3.5 text-left text-sm font-normal text-gray-400"
+                                            className="px-12 py-3.5 text-left text-sm font-normal text-gray-700 dark:text-gray-400"
                                         >
                                             Category
                                         </th>
 
                                         <th
                                             scope="col"
-                                            className="px-4 py-3.5 text-left text-sm font-normal text-gray-400"
+                                            className="px-4 py-3.5 text-left text-sm font-normal text-gray-700 dark:text-gray-400"
                                         >
                                             Live
                                         </th>
 
                                         <th
                                             scope="col"
-                                            className="px-4 py-3.5 text-left text-sm font-normal text-gray-400"
+                                            className="px-4 py-3.5 text-left text-sm font-normal text-gray-700 dark:text-gray-400"
                                         >
                                             Actions
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-gray-950 bg-gray-900">
+                                <tbody className="divide-y divide-gray-50 dark:divide-gray-950 bg-gray-300/50 dark:bg-gray-900/60">
                                     {currentNews.map((news) => (
                                         <tr key={news.slug}>
                                             <td className="w-2/5 px-4 py-4">
                                                 <div className="flex items-center">
                                                     <div className="ml-4">
-                                                        <div className="text-sm font-medium text-gray-200">{news.title}</div>
-                                                        <div className="text-sm text-gray-400">{news.description.substring(0, 140) + (news.description.length > 140 ? '...' : '')}</div>
+                                                        <div className="text-sm font-medium text-gray-900 dark:text-gray-200">{news.title}</div>
+                                                        <div className="text-sm text-gray-600 dark:text-gray-400">{news.description.substring(0, 140) + (news.description.length > 140 ? '...' : '')}</div>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td className="whitespace-nowrap px-12 py-4">
-                                                <div className="text-sm text-gray-200 ">{news.author}</div>
+                                                <div className="text-sm text-gray-900 dark:text-gray-200 ">{news.author}</div>
                                             </td>
                                             <td className="whitespace-nowrap px-12 py-4">
-                                                <div className="text-sm text-gray-200 ">{news.category}</div>
+                                                <div className="text-sm text-gray-900 dark:text-gray-200 ">{news.category}</div>
                                             </td>
                                             <td className="whitespace-nowrap px-4 py-4">
-                                                {news.live ? <span className="inline-flex rounded-full bg-green-400/20 px-2 py-1 text-xs font-semibold leading-5 text-green-400">
+                                                {news.live ? <span className="inline-flex rounded-full bg-green-700/20 dark:bg-green-400/20 px-2 py-1 text-xs font-semibold leading-5 text-green-700 dark:text-green-400">
                                                     <Check width={16} strokeWidth={3} />
                                                 </span> :
-                                                    <span className="inline-flex rounded-full bg-red-400/20 px-2 py-1 text-xs font-semibold leading-5 text-red-400">
+                                                    <span className="inline-flex rounded-full bg-red-700/20 dark:bg-red-400/20 px-2 py-1 text-xs font-semibold leading-5 text-red-700 dark:text-red-400">
                                                         <X width={16} strokeWidth={3} />
                                                     </span>}
                                             </td>
                                             <td className="whitespace-nowrap px-4 py-4">
-                                                <button onClick={() => { handleEditNewsButtonClick(news) }} title='Edit News' className="rounded-full bg-blue-500/80 mx-[3px] px-2 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                                                <button onClick={() => { handleEditNewsButtonClick(news) }} title='Edit News' className="rounded-full bg-blue-600/80 dark:bg-blue-500/80 mx-[3px] px-2 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600/70 dark:hover:bg-blue-500/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                                                     <PencilLine size={16} />
                                                 </button>
-                                                <button onClick={() => { router.push(`/articles/${news.category}/${news.slug}`) }} title='Delete News' className="rounded-full bg-violet-500/80 mx-[3px] px-2 py-2 text-sm font-semibold text-white shadow-sm hover:bg-violet-500/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                                                <button onClick={() => { router.push(`/articles/${news.category}/${news.slug}`) }} title='Delete News' className="rounded-full bg-violet-600 dark:bg-violet-500/80 mx-[3px] px-2 py-2 text-sm font-semibold text-white shadow-sm hover:bg-violet-600/70 dark:hover:bg-violet-500/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                                                     <Eye size={16} />
                                                 </button>
-                                                <button onClick={() => { handleDeleteNewsButtonClick(news.id) }} title='Delete News' className="rounded-full bg-red-500/80 mx-[3px] px-2 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                                                <button onClick={() => { handleDeleteNewsButtonClick(news.id) }} title='Delete News' className="rounded-full bg-red-600 dark:bg-red-500/80 mx-[3px] px-2 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-600/70 dark:hover:bg-red-500/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                                                     <Trash2 size={16} />
                                                 </button>
                                             </td>

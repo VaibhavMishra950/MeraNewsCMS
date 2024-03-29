@@ -19,7 +19,7 @@ export default function AdminApp({ Component, pageProps, user }) {
         {!allowed && <Custom404Error />}
         {allowed && <div className='flex'>
             <AdminSidebar user={user} />
-            <div className='w-[calc(100vw-64px)] h-[calc(100vh-76px)] overflow-y-scroll'>
+            <div className='w-[calc(100vw-64px)] h-[calc(100vh-76px)] overflow-y-scroll bg-gray-50 dark:bg-gray-950/50'>
                 <Component {...pageProps} />
             </div>
         </div>}

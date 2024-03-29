@@ -40,7 +40,7 @@ const NewsArticle = () => {
 
     return (
         <>
-            {slugValidity && <div className='bg-gray-950/80 min-h-[calc(100vh-76px)]'>
+            {slugValidity && <div className='bg-gray-100 dark:bg-gray-950/80 min-h-[calc(100vh-76px)] text-black dark:text-white'>
                 <div className='py-5 px-14'>
                     <button
                         onClick={router.back}
@@ -57,16 +57,16 @@ const NewsArticle = () => {
                     </h1>
 
                     <p
-                        className='text-gray-200/90 -mt-2 text-lg font-body'
+                        className='text-gray-900/90 dark:text-gray-200/90 -mt-2 text-lg font-body'
                     >
                         {news?.description}
                     </p>
                     <p
-                        className='text-gray-400 text-sm py-2 font-display'
+                        className='text-gray-600 dark:text-gray-400 text-sm py-2 font-display'
                     >
                         {news && getNewsDate(news.createdAt)}. By&nbsp;
                         <Link
-                            className='text-blue-500 hover:text-blue-400'
+                            className='text-blue-500 dark:hover:text-blue-400 hover:text-blue-600'
                             href={`/editor/${news?.authorUsername}`}
                         >
                             {news?.author}.
